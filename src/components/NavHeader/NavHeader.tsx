@@ -41,10 +41,16 @@ export default function NavHeader() {
         renderPopover={
           <div className='relative rounded-sm border border-gray-200 bg-white shadow-md'>
             <div className='flex flex-col py-2 pr-28 pl-3'>
-              <button className='py-2 px-3 text-left hover:text-orange' onClick={() => changeLanguage('vi')}>
+              <button
+                className='py-2 px-3 text-left hover:text-cyan-600 hover:bg-slate-100'
+                onClick={() => changeLanguage('vi')}
+              >
                 Tiếng Việt
               </button>
-              <button className='mt-2 py-2 px-3 text-left hover:text-orange' onClick={() => changeLanguage('en')}>
+              <button
+                className='mt-2 py-2 px-3 text-left hover:text-cyan-600 hover:bg-slate-100'
+                onClick={() => changeLanguage('en')}
+              >
                 English
               </button>
             </div>

@@ -69,7 +69,7 @@ export default function AsideFilter({ queryConfig, categories }: Props) {
       <Link
         to={path.home}
         className={classNames('flex items-center font-bold', {
-          'text-orange': !category
+          'text-cyan-800': !category
         })}
       >
         <svg viewBox='0 0 12 10' className='mr-3 h-4 w-3 fill-current'>
@@ -102,11 +102,11 @@ export default function AsideFilter({ queryConfig, categories }: Props) {
                   }).toString()
                 }}
                 className={classNames('relative px-2', {
-                  'font-semibold text-orange': isActive
+                  'font-semibold text-cyan-800': isActive
                 })}
               >
                 {isActive && (
-                  <svg viewBox='0 0 4 7' className='absolute top-1 left-[-10px] h-2 w-2 fill-orange'>
+                  <svg viewBox='0 0 4 7' className='absolute top-1 left-[-10px] h-2 w-2 fill-cyan-800'>
                     <polygon points='4 3.5 0 0 0 7' />
                   </svg>
                 )}
@@ -196,8 +196,8 @@ export default function AsideFilter({ queryConfig, categories }: Props) {
               }}
             />
           </div>
-          <div className='mt-1 min-h-[1.25rem] text-center text-sm text-red-600'>{errors.price_min?.message}</div>
-          <Button className='flex w-full items-center justify-center bg-orange p-2 text-sm uppercase text-white hover:bg-orange/80'>
+          <div className='mt-1 min-h-[1.25rem] text-center text-sm text-cyan-600'>{errors.price_min?.message}</div>
+          <Button className='flex w-full items-center justify-center bg-cyan-600 p-2 text-sm uppercase text-white hover:bg-cyan-600/50'>
             Áp dụng
           </Button>
         </form>
@@ -208,7 +208,7 @@ export default function AsideFilter({ queryConfig, categories }: Props) {
       <div className='my-4 h-[1px] bg-gray-300' />
       <Button
         onClick={handleRemoveAll}
-        className='flex w-full items-center justify-center bg-orange p-2 text-sm uppercase text-white hover:bg-orange/80'
+        className='flex w-full items-center justify-center  bg-cyan-600 p-2 text-sm uppercase text-white hover:bg-cyan-600/50'
       >
         Xóa tất cả
       </Button>

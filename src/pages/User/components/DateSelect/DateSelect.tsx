@@ -43,7 +43,7 @@ export default function DateSelect({ value, onChange, errorMessage }: Props) {
           <select
             onChange={handleChange}
             name='date'
-            className='h-10 w-[32%] cursor-pointer rounded-sm border border-black/10 px-3 hover:border-orange'
+            className='h-10 w-[32%] cursor-pointer rounded-sm border border-black/10 px-3 hover:border-cyan-400'
             value={value?.getDate() || date.date}
           >
             <option disabled>Ngày</option>
@@ -56,7 +56,7 @@ export default function DateSelect({ value, onChange, errorMessage }: Props) {
           <select
             onChange={handleChange}
             name='month'
-            className='h-10 w-[32%] cursor-pointer rounded-sm border border-black/10 px-3 hover:border-orange'
+            className='h-10 w-[32%] cursor-pointer rounded-sm border border-black/10 px-3 hover:border-cyan-400'
             value={value?.getMonth() || date.month}
           >
             <option disabled>Tháng</option>
@@ -69,7 +69,7 @@ export default function DateSelect({ value, onChange, errorMessage }: Props) {
           <select
             onChange={handleChange}
             name='year'
-            className='h-10 w-[32%] cursor-pointer rounded-sm border border-black/10 px-3 hover:border-orange'
+            className='h-10 w-[32%] cursor-pointer rounded-sm border border-black/10 px-3 hover:border-cyan-400'
             value={value?.getFullYear() || date.year}
           >
             <option disabled>Năm</option>

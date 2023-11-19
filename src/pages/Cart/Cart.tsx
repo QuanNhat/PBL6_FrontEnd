@@ -155,7 +155,7 @@ export default function Cart() {
                       <div className='flex flex-shrink-0 items-center justify-center pr-3'>
                         <input
                           type='checkbox'
-                          className='h-5 w-5 accent-orange'
+                          className='h-5 w-5 accent-cyan-600'
                           checked={isAllChecked}
                           onChange={handleCheckAll}
                         />
@@ -184,7 +184,7 @@ export default function Cart() {
                             <div className='flex flex-shrink-0 items-center justify-center pr-3'>
                               <input
                                 type='checkbox'
-                                className='h-5 w-5 accent-orange'
+                                className='h-5 w-5 accent-cyan-600'
                                 checked={purchase.checked}
                                 onChange={handleCheck(index)}
                               />
@@ -246,14 +246,14 @@ export default function Cart() {
                               />
                             </div>
                             <div className='col-span-1'>
-                              <span className='text-orange'>
+                              <span className='text-red-700'>
                                 ₫{formatCurrency(purchase.product.price * purchase.buy_count)}
                               </span>
                             </div>
                             <div className='col-span-1'>
                               <button
                                 onClick={handleDelete(index)}
-                                className='bg-none text-black transition-colors hover:text-orange'
+                                className='bg-none text-black transition-colors hover:text-cyan-600'
                               >
                                 Xóa
                               </button>
@@ -271,7 +271,7 @@ export default function Cart() {
                 <div className='flex flex-shrink-0 items-center justify-center pr-3'>
                   <input
                     type='checkbox'
-                    className='h-5 w-5 accent-orange'
+                    className='h-5 w-5 accent-cyan-600'
                     checked={isAllChecked}
                     onChange={handleCheckAll}
                   />
@@ -296,7 +296,7 @@ export default function Cart() {
                   </div>
                 </div>
                 <Button
-                  className='mt-5 flex h-10 w-52 items-center justify-center bg-red-500 text-sm uppercase text-white hover:bg-red-600 sm:ml-4 sm:mt-0'
+                  className='mt-5 flex h-10 w-52 items-center justify-center bg-cyan-600 text-sm uppercase text-white hover:bg-cyan-600/50 sm:ml-4 sm:mt-0'
                   onClick={handleBuyPurchases}
                   disabled={buyProductsMutation.isLoading}
                 >

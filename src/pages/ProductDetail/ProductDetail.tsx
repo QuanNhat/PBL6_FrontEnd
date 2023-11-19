@@ -123,7 +123,7 @@ export default function ProductDetail() {
   return (
     <div className='bg-gray-200 py-6'>
       <Helmet>
-        <title>{product.name} | Shopee Clone</title>
+        <title>{product.name} | VTECHSTORE</title>
         <meta
           name='description'
           content={convert(product.description, {
@@ -174,7 +174,7 @@ export default function ProductDetail() {
                         alt={product.name}
                         className='absolute top-0 left-0 h-full w-full cursor-pointer bg-white object-cover'
                       />
-                      {isActive && <div className='absolute inset-0 border-2 border-orange' />}
+                      {isActive && <div className='absolute inset-0 border-2 border-cyan-600' />}
                     </div>
                   )
                 })}
@@ -235,14 +235,14 @@ export default function ProductDetail() {
               <div className='mt-8 flex items-center'>
                 <button
                   onClick={addToCart}
-                  className='flex h-12 items-center justify-center rounded-sm border border-orange bg-orange/10 px-5 capitalize text-orange shadow-sm hover:bg-orange/5'
+                  className='flex h-12 items-center justify-center rounded-sm border border-cyan-600 bg-cyan-600/10 px-5 capitalize text-cyan-600 shadow-sm hover:bg-cyan-600/5'
                 >
                   <svg
                     enableBackground='new 0 0 15 15'
                     viewBox='0 0 15 15'
                     x={0}
                     y={0}
-                    className='mr-[10px] h-5 w-5 fill-current stroke-orange text-orange'
+                    className='mr-[10px] h-5 w-5 fill-current stroke-cyan-600 text-cyan-600'
                   >
                     <g>
                       <g>
@@ -264,7 +264,7 @@ export default function ProductDetail() {
                 </button>
                 <button
                   onClick={buyNow}
-                  className='fkex ml-4 h-12 min-w-[5rem] items-center justify-center rounded-sm bg-orange px-5 capitalize text-white shadow-sm outline-none hover:bg-orange/90'
+                  className='fkex ml-4 h-12 min-w-[5rem] items-center justify-center rounded-sm bg-cyan-600 px-5 capitalize text-white shadow-sm outline-none hover:bg-cyan-600/90'
                 >
                   Mua ngay
                 </button>
