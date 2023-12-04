@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from '@tanstack/react-query'
-import React, { useContext, useEffect, useMemo } from 'react'
+import React, { useContext, useEffect, useMemo, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import purchaseApi from 'src/apis/purchase.api'
 import Button from 'src/components/Button'
@@ -13,6 +13,13 @@ import keyBy from 'lodash/keyBy'
 import { toast } from 'react-toastify'
 import { AppContext } from 'src/contexts/app.context'
 import noproduct from 'src/assets/images/no-product.png'
+import { PayPalButton } from 'react-paypal-button-v2'
+// import { Radio } from 'antd'
+
+// const Payment = [
+//   { id: 1, name: 'late_money' },
+//   { id: 2, name: 'paypal' }
+// ]
 
 export default function Cart() {
   const { extendedPurchases, setExtendedPurchases } = useContext(AppContext)
@@ -42,12 +49,16 @@ export default function Cart() {
       refetch()
     }
   })
+
   const location = useLocation()
   const choosenPurchaseIdFromLocation = (location.state as { purchaseId: string } | null)?.purchaseId
   const purchasesInCart = purchasesInCartData?.data.data
   const isAllChecked = useMemo(() => extendedPurchases.every((purchase) => purchase.checked), [extendedPurchases])
   const checkedPurchases = useMemo(() => extendedPurchases.filter((purchase) => purchase.checked), [extendedPurchases])
   const checkedPurchasesCount = checkedPurchases.length
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [payment, setPayment] = useState<string>('later_money')
+  const [sdkReady, setSdkReady] = useState<boolean>(false)
   const totalCheckedPurchasePrice = useMemo(
     () =>
       checkedPurchases.reduce((result, current) => {
@@ -141,6 +152,31 @@ export default function Cart() {
       buyProductsMutation.mutate(body)
     }
   }
+
+  const handlePayment = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // setPayment(event.target.value)
+    setPayment(event.target.value)
+  }
+
+  const addPaypalScript = async () => {
+    const script = document.createElement('script')
+    script.type = 'text/javascript'
+    script.src =
+      'https://www.paypal.com/sdk/js?client-id=AXlfyJ2QROzOTSv_v9dNbFStavQmkh0HAhaVSB7cTJARukMq30pIKUUGuHrw1mMPu7zrHqj4LuKYjXrT'
+    script.async = true
+    script.onload = () => {
+      setSdkReady(true)
+    }
+    document.body.appendChild(script)
+  }
+
+  useEffect(() => {
+    if (!window.paypal) {
+      addPaypalScript()
+    } else {
+      setSdkReady(true)
+    }
+  }, [])
 
   return (
     <div className='bg-neutral-100 py-16'>
@@ -295,13 +331,70 @@ export default function Cart() {
                     <div className='ml-6 text-orange'>₫{formatCurrency(totalCheckedPurchaseSavingPrice)}</div>
                   </div>
                 </div>
-                <Button
-                  className='mt-5 flex h-10 w-52 items-center justify-center bg-cyan-600 text-sm uppercase text-white hover:bg-cyan-600/50 sm:ml-4 sm:mt-0'
-                  onClick={handleBuyPurchases}
-                  disabled={buyProductsMutation.isLoading}
-                >
-                  Mua hàng
-                </Button>
+              </div>
+            </div>
+
+            <div className='sticky bottom-0 z-10 mt-8 flex flex-col rounded-sm border border-gray-100 bg-white p-5 shadow sm:flex-row sm:items-center'>
+              <div>
+                <fieldset>
+                  <legend className='mb-3'>Chọn phương thức thanh toán</legend>
+
+                  <div className='flex items-center '>
+                    <div className='flex flex-shrink-0 items-center justify-center pr-3'>
+                      <input
+                        type='radio'
+                        className='h-5 w-5 accent-cyan-600 mr-3'
+                        name='Later_money'
+                        value='later_money'
+                        id='Later_money'
+                        onChange={handlePayment}
+                        checked={payment === 'later_money'}
+                      />
+                      <label htmlFor='Later_money'>Thanh toán bằng tiền mặt</label>
+                    </div>
+                  </div>
+
+                  <div className='flex items-center mt-3'>
+                    <div className='flex flex-shrink-0 items-center justify-center pr-3'>
+                      <input
+                        type='radio'
+                        className='h-5 w-5 accent-cyan-600 mr-3'
+                        value='paypal'
+                        id='Paypal'
+                        name='Paypal'
+                        onChange={handlePayment}
+                        checked={payment === 'paypal'}
+                      />
+                      <label htmlFor='Paypal'>Thanh toán bằng Paypal</label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div className='mt-5 flex flex-col sm:ml-auto sm:mt-0 sm:flex-row sm:items-center'>
+                <div>
+                  {payment === 'paypal' && sdkReady ? (
+                    <div>
+                      <PayPalButton
+                        amount={totalCheckedPurchasePrice / 25000}
+                        // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
+                        onSuccess={handleBuyPurchases}
+                        onError={() => {
+                          alert('Error')
+                        }}
+                      />
+                    </div>
+                  ) : (
+                    <Button
+                      className='mt-5 flex h-10 w-52 items-center justify-center bg-cyan-600 text-sm uppercase text-white hover:bg-cyan-600/50 sm:ml-4 sm:mt-0'
+                      onClick={handleBuyPurchases}
+                      disabled={buyProductsMutation.isLoading}
+                    >
+                      Mua hàng
+                    </Button>
+                    // <PayPalButton />
+                  )}
+                </div>
               </div>
             </div>
           </>
