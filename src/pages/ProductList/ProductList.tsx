@@ -32,7 +32,7 @@ export default function ProductList() {
     <div className='bg-gray-200 py-6'>
       <Helmet>
         <title>Trang chủ | VTECHSTORE</title>
-        <meta name='description' content='Trang chủ dự án Shopee Clone' />
+        <meta name='description' content='Trang chủ VTECHSTORE' />
       </Helmet>
       <div className='container'>
         {productsData && (
