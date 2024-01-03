@@ -1,9 +1,9 @@
 export type Role = 'User' | 'Admin'
 
-export interface User {
+export interface Admin {
   _id: string
   roles: Role[]
-  // roles: 'User'
+  // roles: 'Admin'
   email: string
   name?: string
   date_of_birth?: string // ISO 8610

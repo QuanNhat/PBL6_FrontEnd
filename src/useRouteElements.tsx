@@ -12,6 +12,9 @@ import RegisterLayout from './layouts/RegisterLayout'
 // import Cart from './pages/Cart'
 import CartLayout from './layouts/CartLayout'
 import UserLayout from './pages/User/layouts/UserLayout'
+// import { Role } from './types/user.type'
+// import { Admin } from './types/admin.type'
+import AdminLayout from './layouts/AdminLayout'
 // import ChangePassword from './pages/User/pages/ChangePassword'
 // import HistoryPurchase from './pages/User/pages/HistoryPurchase'
 // import NotFound from './pages/NotFound'
@@ -62,6 +65,12 @@ function RejectedRoute() {
   return !isAuthenticated ? <Outlet /> : <Navigate to='/' />
 }
 
+function AdminRoute() {
+  const { profile } = useContext(AppContext)
+  const isAdmin = profile?.roles && profile.roles.every((role) => role === 'Admin')
+  return isAdmin ? <Outlet /> : <Navigate to='/' />
+}
+
 export default function useRouteElements() {
   const routeElements = useRoutes([
     {
@@ -89,6 +98,16 @@ export default function useRouteElements() {
               )
             }
           ]
+        }
+      ]
+    },
+    {
+      path: '',
+      element: <AdminRoute />,
+      children: [
+        {
+          path: path.admin,
+          element: <AdminLayout />
         }
       ]
     },
@@ -142,8 +161,32 @@ export default function useRouteElements() {
             }
           ]
         }
+        // {
+        //   path: path.admin,
+        //   element: <AdminRoute />,
+        //   children: [
+        //     {
+        //       path: '',
+        //       element: (
+        //         <Suspense>
+        //           <AdminLayout />
+        //         </Suspense>
+        //       )
+        //     }
+        //   ]
+        // }
       ]
     },
+    // {
+    //   path: '',
+    //   element: <AdminRoute />,
+    //   children: [
+    //     {
+    //       path: path.admin,
+    //       element: <AdminLayout />
+    //     }
+    //   ]
+    // },
     {
       path: '',
       element: <MainLayout />,

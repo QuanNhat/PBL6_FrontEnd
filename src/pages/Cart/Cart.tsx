@@ -14,12 +14,20 @@ import { toast } from 'react-toastify'
 import { AppContext } from 'src/contexts/app.context'
 import noproduct from 'src/assets/images/no-product.png'
 import { PayPalButton } from 'react-paypal-button-v2'
+import Input from 'src/components/Input'
+import { useForm } from 'react-hook-form'
+import { UserSchema, userSchema } from 'src/utils/rules'
+import { yupResolver } from '@hookform/resolvers/yup'
+import userApi from 'src/apis/user.api'
+import { setProfileToLS } from 'src/utils/auth'
 // import { Radio } from 'antd'
 
 // const Payment = [
 //   { id: 1, name: 'late_money' },
 //   { id: 2, name: 'paypal' }
 // ]
+
+type FormDataAddress = Pick<UserSchema, 'address'>
 
 export default function Cart() {
   const { extendedPurchases, setExtendedPurchases } = useContext(AppContext)
@@ -55,10 +63,37 @@ export default function Cart() {
   const purchasesInCart = purchasesInCartData?.data.data
   const isAllChecked = useMemo(() => extendedPurchases.every((purchase) => purchase.checked), [extendedPurchases])
   const checkedPurchases = useMemo(() => extendedPurchases.filter((purchase) => purchase.checked), [extendedPurchases])
+  const updateAddressMutation = useMutation(userApi.updateProfile)
+  const { setProfile } = useContext(AppContext)
   const checkedPurchasesCount = checkedPurchases.length
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [payment, setPayment] = useState<string>('later_money')
   const [sdkReady, setSdkReady] = useState<boolean>(false)
+
+  const profileSchema = userSchema.pick(['address'])
+  const { data: profileData } = useQuery({
+    queryKey: ['profile'],
+    queryFn: userApi.getProfile
+  })
+  const profile = profileData?.data.data
+  const methods = useForm<FormDataAddress>({
+    defaultValues: {
+      address: ''
+    },
+    resolver: yupResolver<FormDataAddress>(profileSchema)
+  })
+  const {
+    register,
+    formState: { errors },
+    setValue,
+    handleSubmit
+  } = methods
+  useEffect(() => {
+    if (profile) {
+      setValue('address', profile.address || '')
+    }
+  }, [profile, setValue])
+
   const totalCheckedPurchasePrice = useMemo(
     () =>
       checkedPurchases.reduce((result, current) => {
@@ -178,6 +213,19 @@ export default function Cart() {
     }
   }, [])
 
+  const onChangeAddress = handleSubmit(async (data) => {
+    try {
+      const res = await updateAddressMutation.mutateAsync({
+        ...data
+      })
+      setProfile(res.data.data)
+      setProfileToLS(res.data.data)
+      // refetch()
+      toast.success(res.data.message)
+    } catch (error) {
+      toast.error('Error')
+    }
+  })
   return (
     <div className='bg-neutral-100 py-16'>
       <div className='container'>
@@ -185,6 +233,57 @@ export default function Cart() {
           <>
             <div className='overflow-auto'>
               <div className='min-w-[1000px]'>
+                <form onSubmit={onChangeAddress}>
+                  <div className='my-3  rounded-sm bg-white p-5 shadow'>
+                    {/* <div className='ml-1 pr-80 flex flex-col flex-wrap sm:flex-row'> */}
+                    <div className='flex items-center '>
+                      <div className='flex flex-shrink-0 items-center justify-center pr-3'>
+                        <svg
+                          xmlns='http://www.w3.org/2000/svg'
+                          fill='none'
+                          viewBox='0 0 24 24'
+                          strokeWidth={1.5}
+                          stroke='currentColor'
+                          className='w-6 h-6'
+                        >
+                          <path
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            d='M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z'
+                          />
+                          <path
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            d='M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z'
+                          />
+                        </svg>
+                      </div>
+                      <div className='truncate flex flex-shrink-0 items-center justify-center pr-3 mr-[-20px]'>
+                        Địa chỉ nhận hàng
+                      </div>
+                      <div className='mt-4 justify-center items-center sm:w-[80%] sm:pl-5'>
+                        <Input
+                          className='mt-2'
+                          classNameInput=' w-full rounded-sm border border-gray-300 px-3 py-2 outline-none focus:border-gray-500 focus:shadow-sm'
+                          register={register}
+                          name='address'
+                          placeholder='Địa chỉ'
+                          errorMessage={errors.address?.message}
+                        />
+                      </div>
+                      <div className='sm:w-[80%] sm:pl-5'>
+                        <Button
+                          className='flex h-9 items-center rounded-sm bg-cyan-500 px-5 text-center text-sm text-white hover:bg-cyan-500/50'
+                          type='submit'
+                        >
+                          Lưu
+                        </Button>
+                      </div>
+                    </div>
+                    {/* </div> */}
+                  </div>
+                </form>
+
                 <div className='grid grid-cols-12 rounded-sm bg-white py-5 px-9 text-sm capitalize text-gray-500 shadow'>
                   <div className='col-span-6'>
                     <div className='flex items-center'>
