@@ -1,3 +1,3 @@
-import ChatBot from './ChatBot.jsx'
+import ChatBot from './ChatBot'
 
 export default ChatBot
