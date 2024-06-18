@@ -17,7 +17,7 @@ export default function RegisterHeader() {
               preserveAspectRatio='xMidYMid meet'
               className='items-center'
             >
-              <g transform='translate(200,820) scale(0.100000,-0.100000)' fill='#0079A7' stroke='none'>
+              <g transform='translate(200,820) scale(0.100000,-0.100000)' fill='#0b9e8a' stroke='none'>
                 <path
                   d='M1558 5520 c-101 -17 -175 -77 -221 -178 l-22 -47 -3 -1830 c-2
 -1291 0 -1849 8 -1894 20 -114 71 -184 170 -230 l55 -26 990 0 c952 0 992 1

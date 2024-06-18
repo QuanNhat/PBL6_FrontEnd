@@ -31,7 +31,7 @@ export default function Header() {
 
   return (
     // <div className='bg-[linear-gradient(-180deg,#f53d2d,#f63)] pb-5 pt-2 text-white'>
-    <div className='bg-[linear-gradient(-180deg,#5CE1E6,#0079A7)] pb-5 pt-2 text-white'>
+    <div className='bg-[linear-gradient(-180deg,#3c9c8c,#6ef0de)] pb-5 pt-2 text-white'>
       <div className='container'>
         <NavHeader />
         <div className='mt-4 grid grid-cols-12 items-end gap-4'>
@@ -52,7 +52,7 @@ export default function Header() {
               preserveAspectRatio='xMidYMid meet'
               className=''
             >
-              <g transform='translate(200,800) scale(0.100000,-0.100000)' fill='#f0e2e2' stroke='none'>
+              <g transform='translate(200,800) scale(0.100000,-0.100000)' fill='#ffffff' stroke='none'>
                 <path
                   d='M1558 5520 c-101 -17 -175 -77 -221 -178 l-22 -47 -3 -1830 c-2
 -1291 0 -1849 8 -1894 20 -114 71 -184 170 -230 l55 -26 990 0 c952 0 992 1
@@ -152,7 +152,7 @@ c107 0 230 -5 273 -11z'
                 placeholder='Tìm kiếm'
                 {...register('name')}
               />
-              <button className='flex-shrink-0 rounded-sm bg-cyan-500 py-2 px-6 hover:opacity-90'>
+              <button className='flex-shrink-0 rounded-sm bg-teal-400 py-2 px-6 hover:opacity-90'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   fill='none'
@@ -203,7 +203,7 @@ c107 0 230 -5 273 -11z'
                         </div>
                         <Link
                           to={path.cart}
-                          className='rounded-sm bg-cyan-500 px-4 py-2 capitalize text-white hover:bg-opacity-90'
+                          className='rounded-sm bg-teal-500 px-4 py-2 capitalize text-white hover:bg-opacity-90'
                         >
                           Xem giỏ hàng
                         </Link>
@@ -230,11 +230,12 @@ c107 0 230 -5 273 -11z'
                   <path
                     strokeLinecap='round'
                     strokeLinejoin='round'
-                    d='M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z'
+                    d='M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z'
                   />
                 </svg>
+
                 {purchasesInCart && purchasesInCart.length > 0 && (
-                  <span className='absolute top-[-5px] left-[17px] rounded-full bg-white px-[9px] py-[1px] text-xs text-cyan-600 '>
+                  <span className='absolute top-[-5px] left-[17px] rounded-full bg-white px-[9px] py-[1px] text-xs text-teal-500 '>
                     {purchasesInCart?.length}
                   </span>
                 )}

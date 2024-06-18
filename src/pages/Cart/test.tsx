@@ -227,7 +227,7 @@ export default function Cart() {
     }
   })
   return (
-    <div className='bg-neutral-100 py-16'>
+    <div className='bg-teel-100 py-16'>
       <div className='container'>
         {extendedPurchases.length > 0 ? (
           <>
@@ -273,7 +273,7 @@ export default function Cart() {
                       </div>
                       <div className='sm:w-[80%] sm:pl-5'>
                         <Button
-                          className='flex h-9 items-center rounded-sm bg-cyan-500 px-5 text-center text-sm text-white hover:bg-cyan-500/50'
+                          className='flex h-9 items-center rounded-sm bg-teel-700 px-5 text-center text-sm text-white hover:bg-teel-700/50'
                           type='submit'
                         >
                           Lưu

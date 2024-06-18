@@ -42,13 +42,13 @@ export default function NavHeader() {
           <div className='relative rounded-sm border border-gray-200 bg-white shadow-md'>
             <div className='flex flex-col py-2 pr-28 pl-3'>
               <button
-                className='py-2 px-3 text-left hover:text-cyan-600 hover:bg-slate-100'
+                className='py-2 px-3 text-left hover:text-teal-500 hover:bg-slate-100'
                 onClick={() => changeLanguage('vi')}
               >
                 Tiếng Việt
               </button>
               <button
-                className='mt-2 py-2 px-3 text-left hover:text-cyan-600 hover:bg-slate-100'
+                className='mt-2 py-2 px-3 text-left hover:text-teal-500 hover:bg-slate-100'
                 onClick={() => changeLanguage('en')}
               >
                 English
@@ -90,19 +90,19 @@ export default function NavHeader() {
             <div className='relative rounded-sm border border-gray-200 bg-white shadow-md'>
               <Link
                 to={path.profile}
-                className='block w-full bg-white py-3 px-4 text-left hover:bg-slate-100 hover:text-cyan-500'
+                className='block w-full bg-white py-3 px-4 text-left hover:bg-slate-100 hover:text-teal-700'
               >
                 Tài khoản của tôi
               </Link>
               <Link
                 to={path.historyPurchase}
-                className='block w-full bg-white py-3 px-4 text-left hover:bg-slate-100 hover:text-cyan-500'
+                className='block w-full bg-white py-3 px-4 text-left hover:bg-slate-100 hover:text-teal-700'
               >
                 Đơn mua
               </Link>
               <button
                 onClick={handleLogout}
-                className='block w-full bg-white py-3 px-4 text-left hover:bg-slate-100 hover:text-cyan-500'
+                className='block w-full bg-white py-3 px-4 text-left hover:bg-slate-100 hover:text-teal-700'
               >
                 Đăng xuất
               </button>

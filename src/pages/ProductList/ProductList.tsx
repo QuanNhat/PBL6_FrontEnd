@@ -29,7 +29,7 @@ export default function ProductList() {
   })
 
   return (
-    <div className='bg-gray-200 py-6'>
+    <div className='bg-teal-100 py-6'>
       <Helmet>
         <title>Trang chủ | VTECHSTORE</title>
         <meta name='description' content='Trang chủ VTECHSTORE' />
@@ -37,11 +37,11 @@ export default function ProductList() {
       <div className='container'>
         {productsData && (
           <div className='grid grid-cols-12 gap-6'>
-            <div className='col-span-3'>
-              <AsideFilter queryConfig={queryConfig} categories={categoriesData?.data.data || []} />
-            </div>
-            <div className='col-span-9'>
-              <SortProductList queryConfig={queryConfig} pageSize={productsData.data.data.pagination.page_size} />
+            <div className='col-span-12'>
+              <div className='flex flex-wrap items-center gap-4'>
+                <AsideFilter queryConfig={queryConfig} categories={categoriesData?.data.data || []} />
+                <SortProductList queryConfig={queryConfig} pageSize={productsData.data.data.pagination.page_size} />
+              </div>
               <div className='mt-6 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'>
                 {productsData.data.data.products.map((product) => (
                   <div className='col-span-1' key={product._id}>

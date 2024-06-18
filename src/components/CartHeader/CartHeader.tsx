@@ -8,7 +8,7 @@ export default function CartHeader() {
 
   return (
     <div className='border-b border-b-black/10'>
-      <div className='bg-cyan-600 text-white'>
+      <div className='bg-teal-600 text-white'>
         <div className='container'>
           <NavHeader />
         </div>
@@ -32,7 +32,7 @@ export default function CartHeader() {
                   preserveAspectRatio='xMidYMid meet'
                   className=''
                 >
-                  <g transform='translate(200,800) scale(0.100000,-0.100000)' fill='#0079A7' stroke='none'>
+                  <g transform='translate(200,800) scale(0.100000,-0.100000)' fill='#0b9e8a' stroke='none'>
                     <path
                       d='M1558 5520 c-101 -17 -175 -77 -221 -178 l-22 -47 -3 -1830 c-2
 -1291 0 -1849 8 -1894 20 -114 71 -184 170 -230 l55 -26 990 0 c952 0 992 1
@@ -124,18 +124,18 @@ c107 0 230 -5 273 -11z'
                   </g>
                 </svg>
               </div>
-              <div className='mx-4 h-6 w-[1px] bg-cyan-800 md:h-8' />
-              <div className='capitalize text-cyan-800 md:text-xl'>Giỏ hàng</div>
+              <div className='mx-4 h-6 w-[1px] bg-teal-800 md:h-8' />
+              <div className='capitalize text-teal-800 md:text-xl'>Giỏ hàng</div>
             </Link>
             <form className='mt-3 md:mt-0 md:w-[50%]' onSubmit={onSubmitSearch}>
-              <div className='flex rounded-sm border-2 border-cyan-600'>
+              <div className='flex rounded-sm border-2 border-teal-600'>
                 <input
                   type='text'
                   className='w-full flex-grow border-none bg-transparent px-3 py-1 text-black outline-none'
                   placeholder='Free Ship Đơn Từ 0Đ'
                   {...register('name')}
                 />
-                <button className='flex-shrink-0 rounded-sm bg-cyan-600 py-2 px-8 hover:opacity-90'>
+                <button className='flex-shrink-0 rounded-sm bg-teal-600 py-2 px-8 hover:opacity-90'>
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
                     fill='none'

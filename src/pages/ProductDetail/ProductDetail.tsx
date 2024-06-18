@@ -121,7 +121,7 @@ export default function ProductDetail() {
 
   if (!product) return null
   return (
-    <div className='bg-gray-200 py-6'>
+    <div className='bg-teal-100 py-6'>
       <Helmet>
         <title>{product.name} | VTECHSTORE</title>
         <meta
@@ -174,7 +174,7 @@ export default function ProductDetail() {
                         alt={product.name}
                         className='absolute top-0 left-0 h-full w-full cursor-pointer bg-white object-cover'
                       />
-                      {isActive && <div className='absolute inset-0 border-2 border-cyan-600' />}
+                      {isActive && <div className='absolute inset-0 border-2 border-teal-600' />}
                     </div>
                   )
                 })}
@@ -235,36 +235,22 @@ export default function ProductDetail() {
               <div className='mt-8 flex items-center'>
                 <button
                   onClick={addToCart}
-                  className='flex h-12 items-center justify-center rounded-sm border border-cyan-600 bg-cyan-600/10 px-5 capitalize text-cyan-600 shadow-sm hover:bg-cyan-600/5'
+                  className='flex h-12 items-center justify-center rounded-sm border border-teal-500 bg-teal-500/10 px-5 capitalize text-teal-500 shadow-sm hover:bg-teal-600/5'
                 >
-                  <svg
-                    enableBackground='new 0 0 15 15'
-                    viewBox='0 0 15 15'
-                    x={0}
-                    y={0}
-                    className='mr-[10px] h-5 w-5 fill-current stroke-cyan-600 text-cyan-600'
-                  >
-                    <g>
-                      <g>
-                        <polyline
-                          fill='none'
-                          points='.5 .5 2.7 .5 5.2 11 12.4 11 14.5 3.5 3.7 3.5'
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeMiterlimit={10}
-                        />
-                        <circle cx={6} cy='13.5' r={1} stroke='none' />
-                        <circle cx='11.5' cy='13.5' r={1} stroke='none' />
-                      </g>
-                      <line fill='none' strokeLinecap='round' strokeMiterlimit={10} x1='7.5' x2='10.5' y1={7} y2={7} />
-                      <line fill='none' strokeLinecap='round' strokeMiterlimit={10} x1={9} x2={9} y1='8.5' y2='5.5' />
-                    </g>
+                  <svg width='25px' height='25px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                    <path
+                      d='M21 5L19 12H7.37671M20 16H8L6 3H3M11.5 7L13.5 9M13.5 9L15.5 7M13.5 9V3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z'
+                      stroke='#000000'
+                      strokeWidth={2}
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                    />
                   </svg>
                   Thêm vào giỏ hàng
                 </button>
                 <button
                   onClick={buyNow}
-                  className='fkex ml-4 h-12 min-w-[5rem] items-center justify-center rounded-sm bg-cyan-600 px-5 capitalize text-white shadow-sm outline-none hover:bg-cyan-600/90'
+                  className='fkex ml-6 h-12 min-w-[5rem] items-center justify-center rounded-sm bg-teal-500 px-5 capitalize text-white shadow-sm outline-none hover:bg-teal-600/90'
                 >
                   Mua ngay
                 </button>

@@ -1,0 +1,141 @@
+/* Chat message styles */
+/* .chat-message {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.chat-message-user {
+  justify-content: flex-end;
+}
+
+.chat-message-bot {
+  justify-content: flex-start;
+}
+
+.chat-message-bubble {
+  max-width: 70%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.chat-message-bubble-user {
+  background-color: #dcf8c6;
+}
+
+.chat-message-bubble-bot {
+  background-color: #f0f0f0;
+}
+
+
+/* Agent avatar styles */
+.chat-container {
+  position: fixed;
+  z-index: 10000;
+}
+.sc-chat-window {
+  width: 530px;
+  height: 700px;
+  max-height: 1000px;
+  border-radius: 100px;
+}
+
+.sc-header--team-name {
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.sc-header--img {
+  max-width: 50px;
+  max-height: 50px;
+}
+.sc-header {
+  background-color: #0b9e8a; /* Màu nền của tiêu đề */
+  color: #333; /* Màu văn bản của tiêu đề */
+}
+
+.sc-message-list {
+  max-height: 800px; /* Điều chỉnh chiều cao tối đa của danh sách tin nhắn */
+  max-width: 800px;
+  overflow-y: auto; /* Hiển thị thanh cuộn nếu danh sách quá dài */
+}
+
+.sc-message {
+  /* margin: 0 4 0 4; */
+  width: 500px;
+}
+
+.sc-message--content {
+}
+
+.sc-launcher::before {
+  /* background-image: url("https://img.freepik.com/free-vector/graident-ai-robot-vectorart_78370-4114.jpg?size=626&ext=jpg") !important; */
+}
+
+.sc-launcher .sc-closed-icon {
+  /* src: url("https://img.freepik.com/free-vector/graident-ai-robot-vectorart_78370-4114.jpg?size=626&ext=jpg"); */
+  /* background-image: url("https://img.freepik.com/free-vector/graident-ai-robot-vectorart_78370-4114.jpg?size=626&ext=jpg") !important; */
+  /* background-size: 1%; */
+  background-size: cover;
+  border-radius: 30px;
+  background-color: #1fddcd;
+}
+
+.sc-launcher.opened .sc-closed-icon {
+  transform: rotate(-90deg);
+  opacity: -0;
+  background-color: #1fddcd;
+}
+
+.sc-message--text {
+  /* font-weight: 500; */
+  font-size: 20px;
+  margin-bottom: 10px;
+  width: auto;
+  display: inline-block;
+  border-radius: 80px;
+}
+.sc-message--content.sent .sc-message--text {
+}
+
+.sc-message--content.received .sc-message--text {
+  /* display: inline-block; */
+  background-color: #b8b9b9;
+}
+.sc-user-input {
+  overflow: hidden;
+}
+.sc-user-input--text {
+  width: 520px;
+  height: 60px;
+  margin-left: 10px;
+  overflow: hidden;
+  font-size: 20px;
+  text-align: start;
+}
+.sc-user-input--text::before {
+  width: 200px;
+}
+
+.sc-user-input--text::after {
+  /* text-align: start; */
+}
+
+.sc-user-input {
+  background-color: #f0f0f0; /* Màu nền của phần nhập tin nhắn */
+}
+
+.sc-user-input--send-button {
+  background-color: #007bff; /* Màu nền của nút gửi */
+  color: #fff; /* Màu văn bản của nút gửi */
+}
+
+.sc-user-input--send-button:hover {
+  background-color: #0056b3; /* Màu nền của nút gửi khi di chuột qua */
+}
+
+.sc-message--avatar {
+  background-image: url('https://img.freepik.com/free-vector/graident-ai-robot-vectorart_78370-4114.jpg?size=626&ext=jpg') !important;
+  min-width: 50px;
+  min-height: 50px;
+}

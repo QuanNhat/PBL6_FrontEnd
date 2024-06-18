@@ -54,7 +54,7 @@ export default function Login() {
   })
 
   return (
-    <div className='bg-cyan-600'>
+    <div className='bg-teal-500'>
       <Helmet>
         <title>Đăng nhập | VTECHSTORE</title>
         <meta name='description' content='Đăng nhập vào dự án Shopee Clone' />
@@ -85,7 +85,7 @@ export default function Login() {
               <div className='mt-3'>
                 <Button
                   type='submit'
-                  className='flex  w-full items-center justify-center bg-cyan-500 py-4 px-2 text-sm uppercase text-white hover:bg-cyan-500/50'
+                  className='flex  w-full items-center justify-center bg-teal-500 py-4 px-2 text-sm uppercase text-white hover:bg-teal-500/50'
                   isLoading={loginMutation.isLoading}
                   disabled={loginMutation.isLoading}
                 >
@@ -94,7 +94,7 @@ export default function Login() {
               </div>
               <div className='mt-8 flex items-center justify-center'>
                 <span className='text-gray-400'>Bạn chưa có tài khoản?</span>
-                <Link className='ml-1 text-cyan-400' to='/register'>
+                <Link className='ml-1 text-teal-700' to='/register'>
                   Đăng ký
                 </Link>
               </div>

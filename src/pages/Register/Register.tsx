@@ -72,7 +72,7 @@ export default function Register() {
   })
 
   return (
-    <div className='bg-cyan-600'>
+    <div className='bg-teal-500'>
       <Helmet>
         <title>Đăng ký | VTECHSTORE</title>
         <meta name='description' content='Đăng ký tài khoản vào dự án Shopee Clone' />
@@ -114,7 +114,7 @@ export default function Register() {
 
               <div className='mt-2'>
                 <Button
-                  className='flex w-full items-center justify-center bg-cyan-500 py-4 px-2 text-sm uppercase text-white hover:bg-cyan-500/50'
+                  className='flex w-full items-center justify-center bg-teal-500 py-4 px-2 text-sm uppercase text-white hover:bg-teal-500/50'
                   isLoading={registerAccountMutation.isLoading}
                   disabled={registerAccountMutation.isLoading}
                 >
@@ -123,7 +123,7 @@ export default function Register() {
               </div>
               <div className='mt-8 flex items-center justify-center'>
                 <span className='text-gray-400'>Bạn đã có tài khoản?</span>
-                <Link className='ml-1 text-cyan-400' to='/login'>
+                <Link className='ml-1 text-teal-700' to='/login'>
                   Đăng nhập
                 </Link>
               </div>

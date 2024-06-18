@@ -30,7 +30,8 @@ module.exports = {
     }
   },
   env: {
-    node: true
+    node: true,
+    "browser": true
   },
   rules: {
     // Tắt rule yêu cầu import React trong file jsx

@@ -227,7 +227,7 @@ export default function Cart() {
     }
   })
   return (
-    <div className='bg-neutral-100 py-16'>
+    <div className='bg-teal-100 py-16'>
       <div className='container'>
         {extendedPurchases.length > 0 ? (
           <>
@@ -273,7 +273,7 @@ export default function Cart() {
                       </div>
                       <div className='sm:w-[80%] sm:pl-5'>
                         <Button
-                          className='flex h-9 items-center rounded-sm bg-cyan-500 px-5 text-center text-sm text-white hover:bg-cyan-500/50'
+                          className='flex h-9 items-center rounded-sm bg-teal-500 px-5 text-center text-sm text-white hover:bg-teal-500/50'
                           type='submit'
                         >
                           Lưu
@@ -290,7 +290,7 @@ export default function Cart() {
                       <div className='flex flex-shrink-0 items-center justify-center pr-3'>
                         <input
                           type='checkbox'
-                          className='h-5 w-5 accent-cyan-600'
+                          className='h-5 w-5 accent-teal-600'
                           checked={isAllChecked}
                           onChange={handleCheckAll}
                         />
@@ -319,7 +319,7 @@ export default function Cart() {
                             <div className='flex flex-shrink-0 items-center justify-center pr-3'>
                               <input
                                 type='checkbox'
-                                className='h-5 w-5 accent-cyan-600'
+                                className='h-5 w-5 accent-teal-600'
                                 checked={purchase.checked}
                                 onChange={handleCheck(index)}
                               />
@@ -388,7 +388,7 @@ export default function Cart() {
                             <div className='col-span-1'>
                               <button
                                 onClick={handleDelete(index)}
-                                className='bg-none text-black transition-colors hover:text-cyan-600'
+                                className='bg-none text-black transition-colors hover:text-teal-600'
                               >
                                 Xóa
                               </button>
@@ -406,7 +406,7 @@ export default function Cart() {
                 <div className='flex flex-shrink-0 items-center justify-center pr-3'>
                   <input
                     type='checkbox'
-                    className='h-5 w-5 accent-cyan-600'
+                    className='h-5 w-5 accent-teal-600'
                     checked={isAllChecked}
                     onChange={handleCheckAll}
                   />
@@ -442,7 +442,7 @@ export default function Cart() {
                     <div className='flex flex-shrink-0 items-center justify-center pr-3'>
                       <input
                         type='radio'
-                        className='h-5 w-5 accent-cyan-600 mr-3'
+                        className='h-5 w-5 accent-teal-600 mr-3'
                         name='Later_money'
                         value='later_money'
                         id='Later_money'
@@ -457,7 +457,7 @@ export default function Cart() {
                     <div className='flex flex-shrink-0 items-center justify-center pr-3'>
                       <input
                         type='radio'
-                        className='h-5 w-5 accent-cyan-600 mr-3'
+                        className='h-5 w-5 accent-teal-600 mr-3'
                         value='paypal'
                         id='Paypal'
                         name='Paypal'
@@ -485,7 +485,7 @@ export default function Cart() {
                     </div>
                   ) : (
                     <Button
-                      className='mt-5 flex h-10 w-52 items-center justify-center bg-cyan-600 text-sm uppercase text-white hover:bg-cyan-600/50 sm:ml-4 sm:mt-0'
+                      className='mt-5 flex h-10 w-52 items-center justify-center bg-teal-600 text-sm uppercase text-white hover:bg-teal-600/50 sm:ml-4 sm:mt-0'
                       onClick={handleBuyPurchases}
                       disabled={buyProductsMutation.isLoading}
                     >

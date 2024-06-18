@@ -2740,7 +2740,7 @@ exports[`ProductDetail > Render UI ProductDetail 1`] = `
         </div>
       </div>
       <footer
-        class="bg-neutral-100 py-16"
+        class="bg-teal-100 py-16"
       >
         <div
           class="container"
