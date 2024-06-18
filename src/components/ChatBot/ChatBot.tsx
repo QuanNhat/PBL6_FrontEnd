@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import { Launcher } from 'react-chat-window'
-import 'D:/MonHocKy7/PL6/VTechStore/VTechStore/src/components/ChatBot/ChatBot.css'
+// eslint-disable-next-line import/named
+import { Launcher, Message } from 'react-chat-window'
+import './ChatBot.css'
 
-// declare module 'chatapp' {
+interface BotMessage {
+  author: 'bot'
+  type: 'text'
+  data: { text: string }
+}
+
 export default function ChatBot() {
-  // const [inputMessage, setInputMessage] = useState('')
-  const [messages, setMessages] = useState(() => {
+  const [messages, setMessages] = useState<Message[]>(() => {
     const storedMessages = localStorage.getItem('chatMessages')
     return storedMessages ? JSON.parse(storedMessages) : []
   })
@@ -15,7 +20,7 @@ export default function ChatBot() {
   }, [messages])
 
   useEffect(() => {
-    const welcomeMessage = {
+    const welcomeMessage: BotMessage = {
       author: 'bot',
       type: 'text',
       data: { text: 'Xin chào! Bạn có thể gửi tin nhắn cho tôi ở đây.' }
@@ -25,8 +30,8 @@ export default function ChatBot() {
     }
   }, [])
 
-  const handleSendMessage = async (newMessage) => {
-    const userMessage = {
+  const handleSendMessage = async (newMessage: Message) => {
+    const userMessage: Message = {
       author: 'me',
       type: 'text',
       data: { text: newMessage.data.text }
@@ -43,7 +48,7 @@ export default function ChatBot() {
       })
       const responseData = await response.json()
 
-      const botMessage = {
+      const botMessage: Message = {
         author: 'them',
         type: 'text',
         data: { text: responseData.response }
@@ -68,4 +73,3 @@ export default function ChatBot() {
     </div>
   )
 }
-// }
