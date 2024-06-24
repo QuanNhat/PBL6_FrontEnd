@@ -39,7 +39,7 @@ export default function ChatBot() {
     setMessages([...messages, userMessage])
 
     try {
-      const response = await fetch('http://localhost:5000/chatbot', {
+      const response = await fetch('https://5000-quannhat-serverchatbot-9q32fv5ehm7.ws-eu114.gitpod.io/chatbot', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
