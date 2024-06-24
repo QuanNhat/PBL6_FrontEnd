@@ -16,11 +16,11 @@
     "strictNullChecks": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": ".",
-    "baseUrl": "./",
-    "paths": {
-      "*": ["src/@types/*"]
-    }
+    "baseUrl": "."
+    // "baseUrl": "./",
+    // "paths": {
+    //   "*": ["src/@types/*"]
+    // }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

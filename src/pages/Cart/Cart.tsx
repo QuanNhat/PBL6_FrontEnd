@@ -182,6 +182,7 @@ export default function Cart() {
     if (checkedPurchases.length > 0) {
       const body = checkedPurchases.map((purchase) => ({
         product_id: purchase.product._id,
+        // name: purchase.product.name,
         buy_count: purchase.buy_count
       }))
       buyProductsMutation.mutate(body)
@@ -476,8 +477,44 @@ export default function Cart() {
                     <div>
                       <PayPalButton
                         amount={totalCheckedPurchasePrice / 25000}
-                        // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
-                        onSuccess={handleBuyPurchases}
+                        createOrder={(data, actions) => {
+                          return actions.order.create({
+                            purchase_units: [
+                              {
+                                amount: {
+                                  currency_code: 'USD',
+                                  value: (totalCheckedPurchasePrice / 25000).toFixed(2),
+                                  breakdown: {
+                                    item_total: {
+                                      currency_code: 'USD',
+                                      value: (totalCheckedPurchasePrice / 25000).toFixed(2)
+                                    }
+                                  }
+                                },
+                                items: checkedPurchases.map((purchase) => ({
+                                  name: purchase.product.name,
+                                  unit_amount: {
+                                    currency_code: 'USD',
+                                    value: (purchase.product.price / 25000).toFixed(2)
+                                  },
+                                  quantity: purchase.buy_count
+                                }))
+                              }
+                            ]
+                          })
+                        }}
+                        onApprove={(data, actions) => {
+                          return actions.order.capture().then((details) => {
+                            handleBuyPurchases()
+
+                            const productNames = checkedPurchases.map((purchase) => purchase.product.name).join(', ')
+
+                            // You can make an API call here to save the product names to your server or log them as needed
+                            // alert(
+                            //   `Transaction completed by ${details.payer.name.given_name}. Products purchased: ${productNames}`
+                            // )
+                          })
+                        }}
                         onError={() => {
                           alert('Error')
                         }}
