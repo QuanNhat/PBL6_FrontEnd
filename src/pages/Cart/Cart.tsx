@@ -439,7 +439,7 @@ export default function Cart() {
                 <fieldset>
                   <legend className='mb-3'>Chọn phương thức thanh toán</legend>
 
-                  <div className='flex items-center '>
+                  {/* <div className='flex items-center '>
                     <div className='flex flex-shrink-0 items-center justify-center pr-3'>
                       <input
                         type='radio'
@@ -452,7 +452,7 @@ export default function Cart() {
                       />
                       <label htmlFor='Later_money'>Thanh toán bằng tiền mặt</label>
                     </div>
-                  </div>
+                  </div> */}
 
                   <div className='flex items-center mt-3'>
                     <div className='flex flex-shrink-0 items-center justify-center pr-3'>
@@ -463,7 +463,7 @@ export default function Cart() {
                         id='Paypal'
                         name='Paypal'
                         onChange={handlePayment}
-                        checked={payment === 'paypal'}
+                        // checked={payment === 'paypal'}
                       />
                       <label htmlFor='Paypal'>Thanh toán bằng Paypal</label>
                     </div>
@@ -523,8 +523,8 @@ export default function Cart() {
                   ) : (
                     <Button
                       className='mt-5 flex h-10 w-52 items-center justify-center bg-teal-600 text-sm uppercase text-white hover:bg-teal-600/50 sm:ml-4 sm:mt-0'
-                      onClick={handleBuyPurchases}
-                      disabled={buyProductsMutation.isLoading}
+                      // onClick={handleBuyPurchases}
+                      // disabled={buyProductsMutation.isLoading}
                     >
                       Mua hàng
                     </Button>

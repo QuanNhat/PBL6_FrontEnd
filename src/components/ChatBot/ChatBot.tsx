@@ -10,14 +10,16 @@ interface BotMessage {
 }
 
 export default function ChatBot() {
-  const [messages, setMessages] = useState<Message[]>(() => {
-    const storedMessages = localStorage.getItem('chatMessages')
-    return storedMessages ? JSON.parse(storedMessages) : []
-  })
+  // const [messages, setMessages] = useState<Message[]>(() => {
+  //   const storedMessages = localStorage.getItem('chatMessages')
+  //   return storedMessages ? JSON.parse(storedMessages) : []
+  // })
 
-  useEffect(() => {
-    localStorage.setItem('chatMessages', JSON.stringify(messages))
-  }, [messages])
+  const [messages, setMessages] = useState<Message[]>([])
+
+  // useEffect(() => {
+  //   localStorage.setItem('chatMessages', JSON.stringify(messages))
+  // }, [messages])
 
   useEffect(() => {
     const welcomeMessage: BotMessage = {
